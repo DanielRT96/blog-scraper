@@ -1,0 +1,24 @@
+.search__container {
+  position: relative;
+  width: 400px;
+}
+.search__input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  padding: 10px 100px 10px 20px;
+  box-sizing: border-box;
+  outline: none;
+}
+.search__button {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  bottom: 3px;
+  border: 0;
+  background: #f3aa4e;
+  color: #fff;
+  outline: none;
+  border-radius: 100px;
+  z-index: 2;
+}
