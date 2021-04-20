@@ -6,9 +6,9 @@
 
 .title {
   color: #ffffff;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Verdana', sans-serif;
   font-size: 35px;
   font-weight: 800;
   margin: 15px 0 24px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
