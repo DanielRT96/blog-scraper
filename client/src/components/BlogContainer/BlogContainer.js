@@ -1,12 +1,16 @@
 import React from 'react';
 
 import './BlogContainer.css';
-import BlogItem from './BlogItem/BlogItem';
+import BlogItem from './Blogitem/BlogItem';
 
-const BlogContainer = () => {
+const BlogContainer = ({ blogData }) => {
+  const blogs = [...blogData];
+  console.log(blogs);
   return (
     <div className="blog__container">
-      <BlogItem></BlogItem>
+      {blogs.map((blog) => (
+        <BlogItem name={blog.blogName} link={blog.blogUrl}></BlogItem>
+      ))}
     </div>
   );
 };

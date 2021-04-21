@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './InputField.css';
 
-const InputField = () => {
+const InputField = ({ setBlogData }) => {
   const [userInput, setInput] = useState(null);
 
   const handleChange = (e) => {
     setInput(e.target.value);
   };
 
-  const onClick = () => {
-    axios.post(`http://localhost:3001/scrape`, { userInput }).then((res) => {
-      console.log(res.data); // Here get back
-    });
+  const onClick = async () => {
+    axios
+      .post(`http://localhost:3001/scrape`, { numberOfPages: userInput })
+      .then((res) => {
+        setBlogData(res.data);
+      });
   };
 
   return (
