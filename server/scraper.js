@@ -1,10 +1,10 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const blogScraper = require('./blogScraper');
 
-async function scrapeBlog() {
-  let numberOfPages = 1;
+async function start() {
+  numberOfPages = 1;
   const url = `https://blog.risingstack.com/page/${numberOfPages}`;
-
   async function fetchHTML(url) {
     const { data } = await axios.get(url);
     return cheerio.load(data);
@@ -13,9 +13,19 @@ async function scrapeBlog() {
   const $ = await fetchHTML(url);
 
   const list = [];
-  $('article').each(function (i, el) {
+  $('article').each(function () {
     list.push($(this).find('a').attr('href'));
   });
-  console.log(list);
+  return Promise.all(
+    list.map((url) => {
+      return blogScraper('https://blog.risingstack.com/' + url);
+    })
+  );
 }
-module.exports = scrapeBlog();
+start().then((urls) => {
+  console.log(
+    urls.filter((el) => {
+      return el !== undefined;
+    })
+  );
+});

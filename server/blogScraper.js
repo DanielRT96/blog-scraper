@@ -1,7 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-const blogScraper = (url) => {
+const blogScraper = async (url) => {
   async function fetchHTML(url) {
     const { data } = await axios.get(url);
     return cheerio.load(data);
@@ -15,10 +15,10 @@ const blogScraper = (url) => {
     })
     .find('img').length;
 
-  console.log(numberOfPictures);
-
-  if( numberOfPictures === 0) {
-    return url;
+  if (numberOfPictures === 0) {
+    return {
+      blog: url,
+    };
   }
-}
+};
 module.exports = blogScraper;
