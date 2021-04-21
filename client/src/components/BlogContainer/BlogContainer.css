@@ -1,7 +1,9 @@
 .blog__container {
   background-color: #ffffff;
   width: 60%;
-  padding: 150px;
+  padding: 20px;
   border-radius: 50px;
   margin: 30px auto 0px auto;
+  display: flex;
+  flex-flow: column wrap;
 }
