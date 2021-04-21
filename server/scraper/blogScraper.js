@@ -17,7 +17,8 @@ const blogScraper = async (url) => {
 
   if (numberOfPictures === 0) {
     return {
-      blog: url,
+      blogName: $('.post-jumbotron-title').text(),
+      blogUrl: url,
     };
   }
 };
