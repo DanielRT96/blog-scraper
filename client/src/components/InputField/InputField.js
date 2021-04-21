@@ -6,7 +6,11 @@ const InputField = ({ setBlogData }) => {
   const [userInput, setInput] = useState(null);
 
   const handleChange = (e) => {
-    setInput(e.target.value);
+    const re = /^[0-9\b]+$/;
+
+    if (e.target.value === '' || re.test(e.target.value)) {
+      setInput(e.target.value);
+    }
   };
 
   const onClick = async () => {

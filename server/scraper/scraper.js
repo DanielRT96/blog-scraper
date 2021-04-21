@@ -39,6 +39,7 @@ const scrapePages = async (url, lastPage) => {
 };
 
 const amountOfPagesToScrape = async (numberOfPages) => {
+  if (numberOfPages <= 0) return;
   const firstUrl = 'https://blog.risingstack.com/page/1';
 
   const data = await scrapePages(firstUrl, numberOfPages).then((urls) => {
