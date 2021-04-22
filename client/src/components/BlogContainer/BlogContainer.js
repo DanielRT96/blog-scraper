@@ -19,7 +19,7 @@ const BlogContainer = ({ blogData, loading }) => {
         ))}
       </div>
     );
-  } else if (blogs.length >= 0 && loading === true) {
+  } else if (blogs.length > 0 || loading === true) {
     return (
       <div className="blog__container">
         <ClipLoader css={override} size={150} />

@@ -5,7 +5,8 @@ import BlogContainer from './components/BlogContainer/BlogContainer';
 
 function App() {
   const [blogData, setBlogData] = useState('');
-  let [loading, setIsLoading] = useState(false);
+  const [loading, setIsLoading] = useState(false);
+
   return (
     <div className="App">
       <h1 className="title">Scrape it.</h1>
