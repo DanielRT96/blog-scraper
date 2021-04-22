@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './InputField.css';
 
-const InputField = ({ setBlogData }) => {
+const InputField = ({ setBlogData, setIsLoading }) => {
   const [userInput, setInput] = useState(null);
 
   const handleChange = (e) => {
@@ -14,11 +14,14 @@ const InputField = ({ setBlogData }) => {
   };
 
   const onClick = async () => {
-    axios
+    setBlogData([]);
+    setIsLoading(true);
+    await axios
       .post(`http://localhost:3001/scrape`, { numberOfPages: userInput })
       .then((res) => {
         setBlogData(res.data);
       });
+    setIsLoading(false);
   };
 
   return (
