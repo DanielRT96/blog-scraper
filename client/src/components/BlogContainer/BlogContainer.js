@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './BlogContainer.css';
-import BlogItem from './Blogitem/BlogItem';
+import BlogItem from './BlogItem/BlogItem';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { css } from '@emotion/core';
 
